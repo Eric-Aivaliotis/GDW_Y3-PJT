@@ -8,10 +8,13 @@ public class QuestManager : MonoBehaviour
     public GameObject plane;
     public GameObject jumpPlatform;
     public GameObject flagPlane;
+    public GameObject QuestLog;
 
     bool moveQuest;
     bool jumpQuest;
     bool pointQuest;
+
+    bool toggledQuest;
 
     public Text Quests;
 
@@ -19,9 +22,11 @@ public class QuestManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-       moveQuest = false;
-       jumpQuest = false;
-       pointQuest = false;
+        moveQuest = false;
+        jumpQuest = false;
+        pointQuest = false;
+
+        toggledQuest = false;
 
         Quests.text = "Learn to Move [ ]" +
             "\n\nMaster the Jump [ ]" +
@@ -31,18 +36,18 @@ public class QuestManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(moveQuest == true)
+        if (moveQuest == true)
         {
             Quests.text = "Learn to Move [x]" +
                 "\n\nMaster the Jump [ ]" +
                 "\n\nCapture the Flag [ ] ";
-            if(jumpQuest == true)
+            if (jumpQuest == true)
             {
                 Quests.text = "Learn to Move [x]" +
                "\n\nMaster the Jump [x]" +
                "\n\nCapture the Flag [ ] ";
             }
-            if(pointQuest == true)
+            if (pointQuest == true)
             {
                 Quests.text = "Learn to Move [x]" +
                "\n\nMaster the Jump [x]" +
@@ -53,8 +58,8 @@ public class QuestManager : MonoBehaviour
 
     void OnCollisionEnter(Collision other)
     {
-       
-        if(other.collider.name == "Plane")
+
+        if (other.collider.name == "Plane")
         {
             moveQuest = true;
         }
@@ -66,5 +71,18 @@ public class QuestManager : MonoBehaviour
         {
             pointQuest = true;
         }
+    }
+
+    public void ToggleQuest()
+    {
+        if (toggledQuest == false)
+        {
+            QuestLog.SetActive(false); // hide object
+        }
+        if (toggledQuest == true)
+        {
+            QuestLog.SetActive(true); 
+        }
+        toggledQuest = !toggledQuest;
     }
 }

@@ -45,7 +45,7 @@ public class ItemPoolManager : MonoBehaviour
         }
         else
         {
-            tempItem = MonoBehaviour.Instantiate(item, new Vector3(Random.Range(0f, 0.5f), Random.Range(0f, 0.5f), 0.0f), Quaternion.identity);
+            tempItem = MonoBehaviour.Instantiate(item, new Vector3(Random.Range(0f, 0.5f), Random.Range(0f, 20f), 0.0f), Quaternion.identity);
             maxItems += 1;
         }
         return tempItem;
