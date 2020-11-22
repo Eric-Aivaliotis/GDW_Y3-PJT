@@ -1,0 +1,9 @@
+﻿  main.cpp
+  Player.cpp
+  Wrapper.cpp
+     Creating library C:\Users\eaiva\Desktop\year 3\sem1\Game engines\DLL\Assignment2part2\x64\Release\Assignment2part2.lib and object C:\Users\eaiva\Desktop\year 3\sem1\Game engines\DLL\Assignment2part2\x64\Release\Assignment2part2.exp
+  Generating code
+  Previous IPDB not found, fall back to full compilation.
+  All 4 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  Finished generating code
+  Assignment2part2.vcxproj -> C:\Users\eaiva\Desktop\year 3\sem1\Game engines\DLL\Assignment2part2\x64\Release\Assignment2part2.dll
