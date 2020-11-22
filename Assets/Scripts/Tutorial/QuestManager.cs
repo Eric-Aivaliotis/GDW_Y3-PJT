@@ -24,8 +24,8 @@ public class QuestManager : MonoBehaviour
        pointQuest = false;
 
         Quests.text = "Learn to Move [ ]" +
-            "\nMaster the Jump [ ]" +
-            "\nCapture the Flag [ ] ";
+            "\n\nMaster the Jump [ ]" +
+            "\n\nCapture the Flag [ ] ";
     }
 
     // Update is called once per frame
@@ -34,19 +34,19 @@ public class QuestManager : MonoBehaviour
         if(moveQuest == true)
         {
             Quests.text = "Learn to Move [x]" +
-                "\nMaster the Jump [ ]" +
-                "\nCapture the Flag [ ] ";
+                "\n\nMaster the Jump [ ]" +
+                "\n\nCapture the Flag [ ] ";
             if(jumpQuest == true)
             {
                 Quests.text = "Learn to Move [x]" +
-               "\nMaster the Jump [x]" +
-               "\nCapture the Flag [ ] ";
+               "\n\nMaster the Jump [x]" +
+               "\n\nCapture the Flag [ ] ";
             }
             if(pointQuest == true)
             {
                 Quests.text = "Learn to Move [x]" +
-               "\nMaster the Jump [x]" +
-               "\nCapture the Flag [x] ";
+               "\n\nMaster the Jump [x]" +
+               "\n\nCapture the Flag [x] ";
             }
         }
     }
