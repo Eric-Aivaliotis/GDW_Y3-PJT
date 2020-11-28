@@ -16,20 +16,33 @@ public class ItemPoolManager : MonoBehaviour
     void Start()
     {
         BuildItemPool();
+
+        ActivateItemPool();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     private void BuildItemPool()
     {
         for (int i = 0; i < maxItems; i++)
         {
-            GameObject tempItem = Instantiate(item, new Vector3(Random.Range(0f,20f), Random.Range(0f,20f), 0.0f), Quaternion.identity);
+            GameObject tempItem = Instantiate(item, new Vector3(Random.Range(-10.0f,20f),0.0f, Random.Range(0f, 20f)), Quaternion.identity);
             tempItem.SetActive(false);
+            itemQueue.Enqueue(tempItem);
+        }
+    }
+    private void ActivateItemPool()
+    {
+        for (int i = 0; i < maxItems; i++)
+        {
+            GameObject tempItem = Instantiate(item, new Vector3(Random.Range(-10.0f, 20f), 0.0f, Random.Range(0f, 20f)), Quaternion.identity);
+            //Inscrase size of spider
+            tempItem.transform.localScale += new Vector3(30.7f, 30.7f, 30.7f);
+            tempItem.SetActive(true);
             itemQueue.Enqueue(tempItem);
         }
     }
@@ -45,7 +58,7 @@ public class ItemPoolManager : MonoBehaviour
         }
         else
         {
-            tempItem = MonoBehaviour.Instantiate(item, new Vector3(Random.Range(0f, 0.5f), Random.Range(0f, 20f), 0.0f), Quaternion.identity);
+            tempItem = MonoBehaviour.Instantiate(item, new Vector3(Random.Range(-10.0f, 0.5f), 0.0f, Random.Range(0f, 20f)), Quaternion.identity);
             maxItems += 1;
         }
         return tempItem;
@@ -54,7 +67,7 @@ public class ItemPoolManager : MonoBehaviour
     public void ResetItem(GameObject item)
     {
         //Move position back to pool
-        item.transform.position = new Vector3(Random.Range(0f, 20f), Random.Range(0f, 20f), 0.0f);
+        item.transform.position = new Vector3(Random.Range(-10.0f, 20f),0.0f, Random.Range(0f, 20f));
         //Deactivate it since its back in pool
         item.SetActive(false);
         //Actually queue it back into the pool
