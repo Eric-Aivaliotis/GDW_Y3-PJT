@@ -16,8 +16,6 @@ public class ItemPoolManager : MonoBehaviour
     void Start()
     {
         BuildItemPool();
-
-        ActivateItemPool();
     }
 
     // Update is called once per frame
@@ -31,18 +29,8 @@ public class ItemPoolManager : MonoBehaviour
         for (int i = 0; i < maxItems; i++)
         {
             GameObject tempItem = Instantiate(item, new Vector3(Random.Range(-10.0f,20f),0.0f, Random.Range(0f, 20f)), Quaternion.identity);
-            tempItem.SetActive(false);
-            itemQueue.Enqueue(tempItem);
-        }
-    }
-    private void ActivateItemPool()
-    {
-        for (int i = 0; i < maxItems; i++)
-        {
-            GameObject tempItem = Instantiate(item, new Vector3(Random.Range(-10.0f, 20f), 0.0f, Random.Range(0f, 20f)), Quaternion.identity);
-            //Inscrase size of spider
+            //Make object bigger
             tempItem.transform.localScale += new Vector3(30.7f, 30.7f, 30.7f);
-            tempItem.SetActive(true);
             itemQueue.Enqueue(tempItem);
         }
     }
@@ -59,7 +47,7 @@ public class ItemPoolManager : MonoBehaviour
         else
         {
             tempItem = MonoBehaviour.Instantiate(item, new Vector3(Random.Range(-10.0f, 0.5f), 0.0f, Random.Range(0f, 20f)), Quaternion.identity);
-            maxItems += 1;
+            //maxItems += 1;
         }
         return tempItem;
     }
